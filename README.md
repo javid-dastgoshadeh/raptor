@@ -7,6 +7,8 @@ This service is an Otp identity that verify login and register with send code to
 ```bash
 RUN go mod download
 ```
+## Dependency
+Ory kratos
 
 ## RUN
 Run in localhost
