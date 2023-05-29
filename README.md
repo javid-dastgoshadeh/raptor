@@ -11,5 +11,5 @@ RUN go mod download
 ## RUN
 Run in localhost
 ```bash
- go run main.go --config ./config_sample.json serve generate-key
+ go run main.go --config ./config_sample.json serve
 ```
