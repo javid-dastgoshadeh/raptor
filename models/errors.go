@@ -1,0 +1,35 @@
+package models
+
+import (
+	"errors"
+)
+
+var (
+	ErrOtpCodeNotMatched     = errors.New("this code not matched please try again")
+	ErrExpireCodeTime        = errors.New("this code is expired please try again")
+	ErrInvalidToken          = errors.New("invalid token signed")
+	ErrKavenegarApi          = errors.New("err occur in kavenegar Api when sending otp sms")
+	ErrKavenegarHttp         = errors.New("err occur when request to kavenegar when sending otp sms")
+	ErrInternalServer        = errors.New("internal server error")
+	ErrSubmitLoginFlow       = errors.New("kratos login flow can't create")
+	ErrIdentityFormat        = errors.New("email or mobile format is not true")
+	ErrCreatingRegisterFlow  = errors.New("kratos register flow can't create")
+	ErrHttpRequest           = errors.New("http request error")
+	ErrUnauthorized          = errors.New("request is unauthorized ")
+	ErrAuthorizedFormat      = errors.New("jwt format is not true")
+	ErrEmptyJwtToken         = errors.New("jwt is empty")
+	ErrJwtToken              = errors.New("jwt is not in right format")
+	ErrProviderToken         = errors.New("provider token is not valid")
+	ErrProviderConnection    = errors.New("cant get response from provider")
+	ErrCreateKratosLoginFlow = errors.New("error is occur when create flow on kratos ")
+	ErrConnectToGraphql      = errors.New("error is occur when connect to graphql ")
+	ErrExpireOtpCodeTime     = errors.New("error expire time for otp code")
+	ErrGenerationAccessToken = errors.New("error in generation access token")
+	ErrTraitsFormat          = errors.New("error in user schema ")
+	ErrVerificationFormat    = errors.New("error in verification schema ")
+	ErrChangeIdentifier      = errors.New("error in change identifier")
+	ErrCodeSentBefore        = errors.New("code before is sent please try after two mints")
+	ErrGeneral               = errors.New("something went wrong")
+	ErrUpdateMobile          = errors.New("mobile can't be changed")
+	ErrUploadImage           = errors.New("image can't be uploaded")
+)

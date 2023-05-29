@@ -1,0 +1,30 @@
+package models
+
+import "raptor/pkg/failure"
+
+var (
+	CustomErrOtpCodeNotMatched     = failure.New(failure.IntCode(400), "Error otp code not matched")
+	CustomErrExpireCodeTime        = failure.New(failure.IntCode(410), "Error expire code time")
+	CustomErrInvalidToken          = failure.New(failure.IntCode(498), "Error invalid token")
+	CustomErrKavenegarApi          = failure.New(failure.IntCode(502), "Error kavenegar api")
+	CustomErrKavenegarHttp         = failure.New(failure.IntCode(504), "Error Kavenegar Http")
+	CustomErrInternalServer        = failure.New(failure.IntCode(500), "Error internal server")
+	CustomErrSubmitLoginFlow       = failure.New(failure.IntCode(502), "Error submit login flow")
+	CustomErrIdentityFormat        = failure.New(failure.IntCode(400), "Error identity format")
+	CustomErrCreatingRegisterFlow  = failure.New(failure.IntCode(504), "Error Creating register flow")
+	CustomErrHttpRequest           = failure.New(failure.IntCode(400), "Error http request")
+	CustomErrUnauthorized          = failure.New(failure.IntCode(401), "Error unauthorized")
+	CustomErrAuthorizedFormat      = failure.New(failure.IntCode(401), "Error authorized format")
+	CustomErrEmptyJwtToken         = failure.New(failure.IntCode(401), "Error empty jwt token")
+	CustomErrProviderToken         = failure.New(failure.IntCode(102), "Error provider token")
+	CustomErrProviderConnection    = failure.New(failure.IntCode(504), "Error provider connection")
+	CustomErrCreateKratosLoginFlow = failure.New(failure.IntCode(502), "Error kratos login flow")
+	CustomErrConnectToGraphql      = failure.New(failure.IntCode(504), "Error connection to graphql")
+	CustomErrExpireOtpCodeTime     = failure.New(failure.IntCode(410), "Error expire otp code time")
+	CustomErrTraitsFormat          = failure.New(failure.IntCode(400), "Error traits format")
+	CustomErrChangeIdentifier      = failure.New(failure.IntCode(400), "Error change identifier")
+	CustomErrCodeSentBefore        = failure.New(failure.IntCode(400), "Error code send before")
+	CustomErrGeneral               = failure.New(failure.IntCode(422), "Error general")
+	CustomErrUpdateMobile          = failure.New(failure.IntCode(400), " Error")
+	CustomErrUploadImage           = failure.New(failure.IntCode(502), "Error upload image")
+)

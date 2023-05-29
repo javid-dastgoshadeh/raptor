@@ -1,0 +1,164 @@
+{
+  "name": "raptor",
+  "version": "1.0.0",
+  "debug": true,
+  "log_lvl": "debug",
+  "services": {
+    "http": {
+      "scheme": "http",
+      "address": "0.0.0.0",
+      "port": 8000
+    },
+    "rate_limit": 20
+  },
+  "cache": {
+    "redis": {
+      "host": "localhost",
+      "port": "6379",
+      "expire": "3600"
+    }
+  },
+  "templates": {
+    "sms_verification_code": {
+      "subject": "Arzdigital verification code",
+      "content": {
+        "before_code": "Your verification code is: ",
+        "after_code": ""
+      }
+    },
+    "email_verification_code": {
+      "template_name": "send_code_with_email",
+      "subject": "Arzdigital verification code",
+      "content": {
+        "before_code": "Your verification code is: ",
+        "after_code": ""
+      }
+    }
+  },
+  "courier": {
+    "resend_time": 2,
+    "sms": {
+      "kavenegar": {
+        "api_key": "",
+        "pattern": ""
+      },
+      "expire_time": 2
+    },
+    "smtp": {
+      "host": "sandbox.smtp.mailtrap.io",
+      "port": 587,
+      "username": "888a88cb016342",
+      "password": "00bcca1dcc9966",
+      "from": "from@example.com"
+    }
+  },
+  "identity": {
+    "password": "Raptor@123456",
+    "public_avatars": ["https://www.gravatar.com/avatar/HASH"],
+    "default_display_name": "anonymous"
+  },
+  "apis": {
+    "kratos": {
+      "public": {
+        "create_login_flow": {
+          "url": "http://kratos:44001/self-service/login/api",
+          "method": "GET"
+        },
+        "submit_login_flow": {
+          "url": "http://kratos:44001/self-service/login",
+          "method": "POST"
+        },
+        "create_register_flow": {
+          "url": "http://kratos:44001/self-service/registration/api",
+          "method": "GET"
+        },
+        "submit_register_flow": {
+          "url": "http://kratos:44001/self-service/registration",
+          "method": "POST"
+        },
+        "create_setting_flow": {
+          "url": "http://kratos:44001/self-service/settings/api",
+          "method": "GET"
+        },
+        "submit_setting_flow": {
+          "url": "http://kratos:44001/self-service/settings",
+          "method": "POST"
+        },
+        "check_session": {
+          "url": "http://kratos:44001/sessions/whoami",
+          "method": "GET"
+        },
+        "disable_session": {
+          "url": "http://kratos:44001/self-service/logout/api",
+          "method": "DELETE"
+        }
+      },
+      "admin": {
+        "login": "http://kratos:44002",
+        "register": "http://kratos:44002",
+        "update_identity": "http://kratos:44002/admin/identities",
+        "get_identity": "http://kratos:44002/admin/identities"
+      },
+      "graphql": {
+        "search_identity": "http://graphql:45000/v1/graphql"
+      },
+      "identity_id": "default"
+    },
+    "providers": {
+      "google": {
+        "verify_url": {
+          "url": "https://www.googleapis.com/oauth2/v1/tokeninfo",
+          "method": "GET"
+        },
+        "exchange_code_url": {
+          "url": "https://oauth2.googleapis.com/token",
+          "method": "POST"
+        },
+        "credential": {
+          "client_id": "{client_id}",
+          "client_secret": "{client_secret}",
+          "redirect_url": "{redirect_uri}",
+          "scopes": "openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email"
+        }
+      },
+      "apple": {
+        "credential": {
+          "client_id": "{client_id}",
+          "team_id": "{team_id}",
+          "key_file_id": "{key_file_id}",
+          "key_file_path": "{key_file_path}",
+          "redirect_url": "{key_file_path}"
+        }
+      }
+    },
+    "identification": {
+      "check_status":{
+        "url": "{url}",
+        "method": "GET"
+      }
+    },
+    "uploader": {
+      "url": "{url}",
+      "method": "POST",
+      "config": {
+        "size": "25*25"
+      }
+    }
+  },
+  "security": {
+    "private_key_path": "./keys/private_key.pem",
+    "public_key_path": "./keys/public.pem",
+    "refresh_token_private_key_path": "./keys/refresh_token_private_key.pem",
+    "refresh_token_public_key_path": "./keys/refresh_token_public.pem",
+    "jwt": {
+      "access_token": {
+        "expire_time": 10
+      },
+      "refresh_token": {
+        "expire_time": 518400
+      },
+      "aud": ["aud"],
+      "iss": "iss"
+    }
+  }
+}
